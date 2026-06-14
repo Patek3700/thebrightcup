@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>People &amp; Kindness — The Bright Cup</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet"><style>
+:root{ --ink:#0f172a; --soft:#64748b; --line:#eef1f5; --bg:#fff; }
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+
+.hero{ position:relative; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; text-align:center; color:#fff;
+  background:url('img/hero.jpg') center 40%/cover no-repeat; }
+.hero.full{ min-height:66vh; padding:80px 22px 64px; }
+.hero.strip{ min-height:210px; padding:34px 22px; }
+.hero::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(8,20,38,.5),rgba(8,20,38,.25) 45%,rgba(8,20,38,.6)); }
+.hero>*{ position:relative; z-index:1; }
+.logo{ font-size:clamp(40px,7.5vw,82px); font-weight:900; letter-spacing:-.035em;
+  line-height:.98; margin:0; text-shadow:0 2px 30px rgba(0,0,0,.35); text-decoration:none; color:#fff; }
+.hero.strip .logo{ font-size:clamp(28px,5vw,44px); }
+.logo .cup{ background:linear-gradient(90deg,#ffd76b,#ff9e3d);
+  -webkit-background-clip:text; background-clip:text; color:transparent; }
+.tag{ margin:18px 0 0; font-size:clamp(17px,2.4vw,22px); font-weight:500;
+  text-shadow:0 1px 14px rgba(0,0,0,.4); }
+.built{ margin-top:22px; font-size:13px; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; opacity:.92; border:1px solid rgba(255,255,255,.5);
+  border-radius:30px; padding:7px 16px; display:inline-block; backdrop-filter:blur(3px); }
+.refresh{ margin-top:14px; font-size:13.5px; font-weight:600; opacity:.95;
+  display:inline-flex; align-items:center; gap:8px; }
+.refresh b{ font-weight:800; }
+.rdot{ width:8px; height:8px; border-radius:50%; background:#7CFC9B; animation:pulse 2s infinite; }
+@keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(124,252,155,.6) }
+  70%{ box-shadow:0 0 0 9px rgba(124,252,155,0) } 100%{ box-shadow:0 0 0 0 rgba(124,252,155,0) } }
+.backhome{ display:inline-block; margin-top:14px; font-size:14px; font-weight:600;
+  color:#fff; text-decoration:none; opacity:.92; }
+
+.creed{ max-width:780px; margin:0 auto; padding:62px 26px 30px; text-align:center; }
+.creed .eyebrow{ font-size:12.5px; font-weight:800; letter-spacing:.22em;
+  text-transform:uppercase; color:#d9822b; margin:0; }
+.creed .eyebrow::after{ content:""; display:block; width:36px; height:3px; border-radius:3px;
+  margin:16px auto 22px; background:linear-gradient(90deg,#ffd76b,#ff9e3d); }
+.creed .quote{ font-family:Georgia,"Times New Roman",serif; font-style:italic;
+  font-size:clamp(21px,3.1vw,29px); line-height:1.42; color:var(--ink); margin:0; }
+.creed .attr{ margin:16px 0 28px; font-size:12.5px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--soft); }
+.creed .words{ font-size:clamp(15.5px,2vw,17.5px); line-height:1.72; color:#475569;
+  max-width:640px; margin:0 auto; }
+
+.menuwrap{ text-align:center; padding:8px 20px 16px; }
+.menuhead{ font-size:13px; font-weight:800; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--soft); margin:0 0 24px; }
+.menu{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px;
+  max-width:860px; margin:0 auto 76px; }
+.menu a{ position:relative; overflow:hidden; width:212px; min-height:108px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:22px; border-radius:22px; background:var(--t); border:2px solid var(--a);
+  color:var(--a); text-decoration:none; font-weight:800; font-size:18.5px; letter-spacing:-.01em;
+  transition:transform .15s,box-shadow .15s,background .15s,color .15s; }
+.menu a .bgicon{ position:absolute; left:50%; top:50%; width:92px; height:92px;
+  transform:translate(-50%,-50%); opacity:.12; z-index:0; }
+.menu a .lbl, .menu a .c{ position:relative; z-index:1; text-align:center; }
+.menu a .c{ font-size:13px; font-weight:600; opacity:.85; margin-top:8px; }
+.menu a:hover{ background:var(--a); color:#fff; transform:translateY(-4px);
+  box-shadow:0 14px 30px color-mix(in srgb,var(--a) 34%,transparent); }
+.menu a:hover .bgicon{ opacity:.2; }
+
+.topbanner{ position:relative; overflow:hidden; text-align:center; color:#fff;
+  padding:46px 22px 40px;
+  background:linear-gradient(135deg,var(--a),color-mix(in srgb,var(--a) 62%,#0b1220)); }
+.topbanner .bgicon{ position:absolute; right:-30px; top:50%; width:240px; height:240px;
+  transform:translateY(-50%); opacity:.17; color:#fff; }
+.topbanner .logo{ position:relative; font-size:clamp(26px,4.5vw,42px); }
+.topbanner .cup{ -webkit-text-fill-color:#fff; background:none; color:#fff; }
+.topbanner .ttl{ position:relative; margin:10px 0 0; font-size:clamp(20px,3vw,27px);
+  font-weight:800; letter-spacing:-.01em; }
+.topbanner .backhome{ position:relative; }
+
+nav{ position:sticky; top:0; z-index:5; background:rgba(255,255,255,.9);
+  backdrop-filter:saturate(1.6) blur(12px); border-bottom:1px solid var(--line);
+  padding:13px 10px; white-space:nowrap; overflow-x:auto;
+  -webkit-overflow-scrolling:touch; text-align:center; }
+nav::-webkit-scrollbar{ display:none; }
+nav a{ display:inline-flex; align-items:center; gap:8px; margin:0 5px; padding:9px 17px;
+  border-radius:40px; font-size:14px; font-weight:700; text-decoration:none;
+  color:var(--a); background:var(--t); border:1.6px solid var(--a); transition:all .18s; }
+nav a::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--a); }
+nav a:hover{ background:var(--a); color:#fff; transform:translateY(-1px); }
+nav a:hover::before{ background:#fff; }
+nav a.active{ background:var(--a); color:#fff; }
+nav a.active::before{ background:#fff; }
+
+main{ max-width:1140px; margin:0 auto; padding:8px 18px 70px; }
+section{ padding-top:36px; }
+h2.sec{ font-size:clamp(22px,3.4vw,30px); font-weight:900; letter-spacing:-.02em;
+  margin:0 0 22px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+h2.sec::before{ content:""; width:14px; height:14px; border-radius:5px; background:var(--a); }
+h2.sec .count{ font-size:13px; font-weight:700; color:var(--a); background:var(--t);
+  border-radius:20px; padding:4px 12px; text-transform:none; letter-spacing:0; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:22px; align-items:start; }
+.card{ display:flex; flex-direction:column; background:#fff; border:1px solid var(--line);
+  border-radius:18px; overflow:hidden; text-decoration:none; color:inherit;
+  transition:transform .14s,box-shadow .14s; }
+.card:hover{ transform:translateY(-4px); box-shadow:0 14px 34px rgba(15,23,42,.12); }
+.thumb{ height:172px; background-size:cover; background-position:center; }
+.body{ padding:18px 19px 22px; }
+.src{ font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.07em;
+  color:var(--a); margin-bottom:9px; }
+.card h3{ font-size:19px; font-weight:800; line-height:1.28; letter-spacing:-.01em; margin:0 0 9px; }
+.card p{ margin:0; font-size:14.5px; line-height:1.5; color:var(--soft); }
+.card.noimg{ background:var(--t); border-color:transparent; }
+.card.gem h3{ font-family:Georgia,"Times New Roman",serif; font-size:19px; line-height:1.4; }
+footer{ text-align:center; padding:40px 22px 60px; color:var(--soft);
+  font-size:13.5px; line-height:1.7; border-top:1px solid var(--line); }
+footer strong{ color:var(--ink); }
+.flinks{ margin-top:10px; }
+.flinks a{ color:var(--soft); text-decoration:none; font-weight:600; }
+.flinks a:hover{ color:var(--ink); }
+
+.cta{ margin:2px auto 78px; }
+.cta a{ display:inline-block; font-size:15px; font-weight:700; color:#d9822b;
+  text-decoration:none; border-bottom:2px solid #ffd76b; padding-bottom:2px; }
+.cta a:hover{ color:#b45309; }
+.formwrap{ max-width:620px; margin:0 auto; padding:34px 22px 50px; text-align:center; }
+.formtitle{ font-size:28px; font-weight:900; letter-spacing:-.02em; margin:0 0 10px; }
+.formsub{ font-size:16px; line-height:1.6; color:var(--soft); margin:0 auto 28px; max-width:520px; }
+.formwrap form{ display:flex; flex-direction:column; gap:14px; text-align:left; }
+.fld{ font:inherit; font-size:16px; padding:14px 16px; border:1.5px solid var(--line);
+  border-radius:14px; background:#fff; color:var(--ink); width:100%;
+  transition:border-color .15s,box-shadow .15s; }
+.fld:focus{ outline:none; border-color:#f0a23d; box-shadow:0 0 0 4px rgba(240,162,61,.18); }
+textarea.fld{ resize:vertical; }
+.send{ align-self:center; margin-top:8px; font:inherit; font-size:16px; font-weight:800;
+  color:#fff; background:linear-gradient(135deg,#f0a23d,#e07b1f); border:0; border-radius:40px;
+  padding:14px 34px; cursor:pointer; text-decoration:none; display:inline-block;
+  transition:transform .15s,box-shadow .15s; }
+.send:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(224,123,31,.35); }
+.thanks{ padding-top:54px; }
+.byline{ margin-top:18px; font-size:12px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:#c0a86f; }
+.byline::before{ content:""; display:block; width:26px; height:2px; border-radius:2px;
+  margin:0 auto 14px; background:linear-gradient(90deg,#ffd76b,#ff9e3d); }
+</style></head><body><header class="topbanner" style="--a:#e11d48"><svg class="bgicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg><a class="logo" href="index.html">The Bright <span class="cup">Cup</span></a><div class="ttl">People &amp; Kindness</div><a class="backhome" href="index.html">&larr; all topics</a></header><nav><a href="science.html" style="--a:#2563eb;--t:#eaf1ff">Science &amp; Discovery</a><a href="planet.html" style="--a:#059669;--t:#e6f8f0">Planet &amp; Nature</a><a class="active" href="kindness.html" style="--a:#e11d48;--t:#fde9ee">People &amp; Kindness</a><a href="health.html" style="--a:#0891b2;--t:#e3f5f9">Health &amp; Hope</a><a href="culture.html" style="--a:#7c3aed;--t:#f1eafe">Culture, Sport &amp; Joy</a><a href="world.html" style="--a:#ea580c;--t:#fdeede">World &amp; Community</a><a href="gems.html" style="--a:#a16207;--t:#fbf1d2">Little Gems</a></nav><main>  <section style="--a:#e11d48;--t:#fde9ee">
+    <h2 class="sec">People &amp; Kindness <span class="count">3 stories</span></h2>
+    <div class="grid">
+    <a class="card noimg" href="https://www.goodnewsnetwork.org/thousands-donate-to-help-nebraska-ranchers-who-couldnt-feed-their-animals-after-wildfire/" target="_blank" rel="noopener" style="--a:#e11d48;--t:#fde9ee">
+      
+      <div class="body"><div class="src">Good News Network · Jun 14</div>
+      <h3>Thousands Donate to Help Nebraska Ranchers Who Couldn’t Feed Their Herds After Wildfires Burn Every Acre</h3>
+      <p>A few months ago the largest wildfire in Nebraska history burned a thousand square-miles of ranch land. It burned every foot of grass on Mike and Kayla Wintz’s 11,000-acre ranch. But when they and their neighbors faced t…</p></div>
+    </a>
+    <a class="card noimg" href="https://www.goodnewsnetwork.org/dog-rescued-after-being-swept-out-to-sea-on-inflatable-kayak-headed-toward-norway/" target="_blank" rel="noopener" style="--a:#e11d48;--t:#fde9ee">
+      
+      <div class="body"><div class="src">Good News Network · Jun 12</div>
+      <h3>Dog Rescued After Being Swept Out to Sea on Inflatable Kayak Headed Toward Norway</h3>
+      <p>A tour boat joined the search for a dog that had floated three miles out to sea in a kayak. After two hours of searching, they spotted the inflatable boat on the horizon but couldn’t see if the pooch was still aboard. As…</p></div>
+    </a>
+    <a class="card" href="https://reasonstobecheerful.world/care-court-california-mental-illness/" target="_blank" rel="noopener" style="--a:#e11d48;--t:#fde9ee">
+      <div class="thumb" style="background-image:url('https://reasonstobecheerful.world/wp-content/uploads/2026/06/shutterstock_2321944293-scaled.jpg')"></div>
+      <div class="body"><div class="src">Reasons to be Cheerful · Jun 4</div>
+      <h3>‘Relentless Outreach’: The State That Doesn’t Give Up on Mentally Ill Residents</h3>
+      <p>One Thanksgiving, while most families gathered around dinner tables, Janina Estrada cruised the neighborhoods of Orange, California, searching for her 42-year-old son Jimmy Barela in the rain. For nearly two decades, he…</p></div>
+    </a>
+    </div>
+  </section></main><footer><strong>The Bright Cup</strong> &mdash; good news, gathered from Good News Network, Positive News, Reasons to be Cheerful, The Optimist Daily &amp; Squirrel News.<br>Every story links to its original publisher.<div class="flinks"><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="suggest.html">Leave a note</a></div><div class="byline">A JDog Production</div></footer></body></html>

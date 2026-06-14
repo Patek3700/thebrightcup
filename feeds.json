@@ -1,0 +1,9 @@
+{
+  "feeds": [
+    {"name": "Good News Network", "url": "https://www.goodnewsnetwork.org/feed/"},
+    {"name": "Positive News", "url": "https://www.positive.news/feed/"},
+    {"name": "Reasons to be Cheerful", "url": "https://reasonstobecheerful.world/feed/"},
+    {"name": "The Optimist Daily", "url": "https://www.optimistdaily.com/feed/"},
+    {"name": "Squirrel News", "url": "https://squirrel-news.net/feed/"}
+  ]
+}
