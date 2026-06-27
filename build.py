@@ -287,7 +287,7 @@ def render(articles):
         '<p class="tag">Good news. Daily.</p>'
         f'<span class="built">Fresh Brewed Daily: {built}</span>'
         f'<div class="refresh" data-next="{next_ms}"><span class="rdot"></span>'
-        'Next fresh pour in <b id="cd">about an hour</b></div>'
+        'Next fresh pour in <b id="cd">…</b></div>'
         '</header>')
     creed = (
         '<section class="creed"><p class="eyebrow">The Daily Meditation</p>'
@@ -534,20 +534,20 @@ FOOTER = ('<footer><strong>The Bright Cup</strong> &mdash; good news, gathered f
 COUNTDOWN_JS = """<script>
 (function(){
   var out=document.getElementById('cd'); if(!out) return;
-  // compute the next brew (top of every hour, on the :15) live in the browser,
-  // so the clock is always correct no matter when the page was built
+  // compute the next brew (once a day, just after midnight at 00:15) live in
+  // the browser, so the clock is always correct no matter when the page loaded
   function nextBrew(){
     var n=new Date(), t=new Date(n);
-    t.setMinutes(15,0,0);
-    if(n.getMinutes()>=15) t.setHours(t.getHours()+1);
+    t.setHours(0,15,0,0);
+    if(n.getHours()>0 || (n.getHours()===0 && n.getMinutes()>=15)) t.setDate(t.getDate()+1);
     return t.getTime();
   }
   var target=nextBrew();
   function tick(){
     var s=Math.floor((target-Date.now())/1000);
     if(s<=0){ target=nextBrew(); setTimeout(function(){location.reload();},4000); out.textContent='brewing…'; return; }
-    var m=Math.floor(s/60), ss=s%60;
-    out.textContent=m+'m '+String(ss).padStart(2,'0')+'s';
+    var h=Math.floor(s/3600), m=Math.floor((s%3600)/60), ss=s%60;
+    out.textContent = h>0 ? (h+'h '+m+'m') : (m+'m '+String(ss).padStart(2,'0')+'s');
     setTimeout(tick,1000);
   }
   tick();
