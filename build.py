@@ -247,6 +247,7 @@ def page(title, hero, nav, body, countdown=False):
         '<link rel="preconnect" href="https://fonts.googleapis.com">'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
         '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">'
+        '<script data-goatcounter="https://brightcup.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
         f'<style>{STYLE}</style></head><body>'
         f'{hero}{nav}<main>{body}</main>{FOOTER}{cd}'
         '</body></html>'
