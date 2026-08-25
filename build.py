@@ -313,8 +313,22 @@ def render(articles):
             '<div class="menu">' + "".join(bubbles) + '</div>'
             '<div class="cta"><a href="suggest.html">'
             'Have good news to share, or a suggestion? Leave us a note &rarr;</a></div></div>')
+    join = (
+        '<section class="joinwrap" id="join"><div class="joinbox">'
+        '<p class="joinhead">&#9749; Join the Morning Pour</p>'
+        '<p class="formsub">Leave your email and we&rsquo;ll keep you posted as The Bright Cup grows. '
+        'Got a comment or a bit of good news? Pour that in too.</p>'
+        f'<form action="https://formsubmit.co/{CONTACT_EMAIL}" method="POST">'
+        '<input type="hidden" name="_subject" value="New Bright Cup signup">'
+        '<input type="hidden" name="_captcha" value="true">'
+        '<input type="hidden" name="_template" value="box">'
+        '<input type="hidden" name="_next" value="https://thebrightcup.com/thanks.html">'
+        '<input class="fld" type="email" name="email" placeholder="Your email" required>'
+        '<textarea class="fld" name="comment" rows="3" placeholder="A comment, idea, or good news of your own (optional)"></textarea>'
+        '<button class="send" type="submit">Count me in &#9749;</button>'
+        '</form></div></section>')
     (HERE / "index.html").write_text(
-        page("The Bright Cup — good news, daily", hero, "", creed + menu, countdown=True))
+        page("The Bright Cup — good news, daily", hero, "", creed + menu + join, countdown=True))
 
     # ---- suggestions / leave-a-note page + thank-you ----
     note_hero = (
@@ -523,6 +537,13 @@ textarea.fld{ resize:vertical; }
   transition:transform .15s,box-shadow .15s; }
 .send:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(224,123,31,.35); }
 .thanks{ padding-top:54px; }
+.joinwrap{ padding:0 22px 78px; }
+.joinbox{ max-width:620px; margin:0 auto; padding:38px 30px 40px; text-align:center;
+  background:linear-gradient(180deg,#fff8ec,#fdefd8); border:1.5px solid #f5dfb6;
+  border-radius:26px; }
+.joinhead{ font-size:22px; font-weight:900; letter-spacing:-.02em; margin:0 0 10px; }
+.joinbox form{ display:flex; flex-direction:column; gap:14px; text-align:left; }
+.joinbox .fld{ border-color:#eadfc8; }
 .byline{ margin-top:18px; font-size:12px; font-weight:700; letter-spacing:.16em;
   text-transform:uppercase; color:#c0a86f; }
 .byline::before{ content:""; display:block; width:26px; height:2px; border-radius:2px;
@@ -533,6 +554,7 @@ FOOTER = ('<footer><strong>The Bright Cup</strong> &mdash; good news, gathered f
           'Good News Network, Positive News, Reasons to be Cheerful, The Optimist Daily '
           '&amp; Squirrel News.<br>Every story links to its original publisher.'
           '<div class="flinks"><a href="index.html">Home</a> &nbsp;·&nbsp; '
+          '<a href="index.html#join">Join the list</a> &nbsp;·&nbsp; '
           '<a href="suggest.html">Leave a note</a></div>'
           '<div class="byline">A JDog Production</div></footer>')
 
