@@ -20,6 +20,7 @@ HERE = Path(__file__).resolve().parent
 FEEDS = json.loads((HERE / "feeds.json").read_text())["feeds"]
 MAX_PER_FEED = 12
 MAX_TOTAL = 60
+MAX_AGE_DAYS = 14  # drop dated stories older than this; undated ones stay
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) TheBrightCup/1.0"
 
 STRIP_TAGS = re.compile(r"<[^>]+>")
@@ -369,8 +370,12 @@ def main():
     articles = []
     for feed in FEEDS:
         articles.extend(fetch(feed))
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=MAX_AGE_DAYS)).timestamp()
+    fresh = [a for a in articles if not a["ts"] or a["ts"] >= cutoff]
+    if len(fresh) < len(articles):
+        print(f"age cap: dropped {len(articles) - len(fresh)} stories older than {MAX_AGE_DAYS} days")
     seen, deduped = set(), []
-    for a in sorted(articles, key=lambda x: x["ts"], reverse=True):
+    for a in sorted(fresh, key=lambda x: x["ts"], reverse=True):
         key = a["link"].split("?")[0]
         if key in seen:
             continue
