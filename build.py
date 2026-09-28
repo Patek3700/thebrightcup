@@ -70,7 +70,7 @@ ICONS = {
     "suggest": '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
 }
 
-CONTACT_EMAIL = "jlsilverman1@gmail.com"  # FormSubmit delivers notes here
+CONTACT_EMAIL = "d5040f671ba598d95221a8a3bb990ab3"  # FormSubmit private alias (hides the real inbox)
 
 
 def svg_icon(slug, cls):
@@ -556,7 +556,7 @@ FOOTER = ('<footer><strong>The Bright Cup</strong> &mdash; good news, gathered f
           '<div class="flinks"><a href="index.html">Home</a> &nbsp;·&nbsp; '
           '<a href="index.html#join">Join the list</a> &nbsp;·&nbsp; '
           '<a href="suggest.html">Leave a note</a></div>'
-          '<div class="byline">A JDog Production</div></footer>')
+          '</footer>')
 
 COUNTDOWN_JS = """<script>
 (function(){

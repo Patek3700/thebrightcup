@@ -9,4 +9,3 @@ a rotating Daily Meditation, Little Gems, and a "Leave a Note" form.
 - `feeds.json` / `quotes.json` / `gems.json` — content sources.
 - Deploys automatically via GitHub Pages + Actions, rebuilding hourly.
 
-A JDog Production.

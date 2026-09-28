@@ -11,7 +11,7 @@ export PATH="/opt/homebrew/bin:$HOME/.local/node/bin:$HOME/.local/bin:/usr/bin:/
 /usr/bin/python3 build.py >> /tmp/brightcup.log 2>&1
 git add -A
 if ! git diff --cached --quiet; then
-  git -c user.name="Patek3700" -c user.email="jlsilverman1@gmail.com" \
+  git -c user.name="Patek3700" -c user.email="293657706+Patek3700@users.noreply.github.com" \
       commit -q -m "daily refresh: fresh good news"
   git push -q origin main
   echo "[$(date)] pushed update" >> /tmp/brightcup.log
